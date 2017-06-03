@@ -1,0 +1,124 @@
+
+
+.add-timer {
+    padding: 1%;
+}
+
+.name:focus {
+    border: none !important;
+    display: inline-block !important;
+}
+
+.mdl-js-textfield {
+    width: 20% !important;
+    margin:  0 auto !important;
+    display: block!important;
+}
+
+.add {
+    display: block !important;
+    margin: 0 auto!important;
+    background-color: #4776E6!important;
+}
+
+.new-timer {
+    margin-bottom: 7%;
+    border-radius: 5%;
+    box-shadow: 5px 5px 3px #888888;
+    padding: 10%;
+    width: 100%;
+    position: relative;
+    background-color: skyblue;
+}
+
+.timer-name {
+    margin: 2%;
+    width: 60%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2em;
+    color: white;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.timer-name:hover, .timer-name:focus {
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 3px white;
+}
+
+.submit {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 50%;
+    margin: 2%!important;
+    font-size: 1em!important;
+    padding: 9% !important;   
+}
+
+.submit:hover, .submit:focus, .adjustButton:hover, .adjustButton:focus {
+  box-shadow: 2px 2px 8px #444444;
+  outline: none
+}
+
+
+.adjust {
+    position: absolute;
+    display: block;
+    width: 100%;
+    left: 0;
+}
+
+.adjustButton {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    padding: 0% !important;
+    font-size: 1em!important;
+    margin: 2%!important;
+    text-transform: lowercase !important;   
+}
+
+.time-display {
+    font-size: 3.4em;
+    padding: 8% 0% 28% 0%;
+    color: white;
+    margin-bottom: 3%;
+    position: relative;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+@media only screen and (max-width: 480px) {
+   .name{
+        font-size: 1em!important;
+    }
+  
+     .mdl-js-textfield {
+        width: 50%!important;
+    }
+  
+  .add-timer {
+        padding: 2%!important;
+  }
+  
+  
+  .new-timer {
+      margin-bottom: 3%;
+      padding: 0%;
+    padding-bottom: 5%;
+  }
+
+  .timer-name {
+    margin: 2%;
+  }
+  
+  .time-display{
+    padding: 0% 0% 15% 0%;
+    margin-bottom: 8%;
+  }
+
+  .add-timer {
+    padding: 1%;
+  }
+  
+  .submit{
+    padding: 8%!important;
+  }
+}
