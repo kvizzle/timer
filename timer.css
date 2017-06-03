@@ -87,7 +87,7 @@
 
 @media only screen and (max-width: 480px) {
    .name{
-        font-size: 1em!important;
+        font-size: 6em!important;
     }
   
      .mdl-js-textfield {
