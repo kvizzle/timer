@@ -34,12 +34,18 @@ $(document).ready(function(){
   }
 
   newTimerWidget.prototype.start = function(countDownTime){
+
+     this.audio = new Audio('alarm-sound.mp3');
+     this.audio.play();
     var adjustments = this.millisecondsChanged;
     var updateTimeNow = new Date().getTime();
     var timeRemaining = ((countDownTime + adjustments) - updateTimeNow);
     this.currentTime = timeRemaining;
     if(this.currentTime < 0){
       this.currentTime = 0;
+    }
+    else {
+      audio.pause();
     }
   }
 
@@ -53,8 +59,6 @@ $(document).ready(function(){
     this.millisecondsChanged = 0;
     this.startTimerClicked = false;
     this.reset = true;
-this.audio = new Audio('alarm-sound.mp3');
-     this.audio.play();
   }
 
   function ViewModel(){
