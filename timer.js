@@ -74,6 +74,7 @@ $(document).ready(function(){
     this.generateHtml();
     this.clickHandlers(this); 
     this.selectBackground();
+    this.makeSound();
   }
 
   ViewModel.prototype.setName = function(){
