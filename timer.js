@@ -302,9 +302,8 @@ $(document).ready(function(){
         window.setTimeout(generateSound, 120);
       }
     }
-    if (this.obj.currentTime <= 0) {
-          generateSound();
-    }
+    generateSound();
+    
   
   }
               
