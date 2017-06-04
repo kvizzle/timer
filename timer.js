@@ -39,7 +39,6 @@ $(document).ready(function(){
     var timeRemaining = ((countDownTime + adjustments) - updateTimeNow);
     this.currentTime = timeRemaining;
     if(this.currentTime <= 0){
-      this.audio.play();
       this.currentTime = 0;
     }
   }
@@ -167,6 +166,7 @@ $(document).ready(function(){
   ViewModel.prototype.startTimer = function(event){
     var self = event.data.self;
     self.obj.audio = new Audio('alarm-sound.mp3');
+    self.obj.audio.play();
     var input = this;
     input.disabled = true;
     self.obj.startTimerClicked = true;
