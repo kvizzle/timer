@@ -4,7 +4,7 @@ $(document).ready(function(){
   var counter = 1;
   var numNewTimers = 0;
   var nameArr = [];
-  window.AudioContext = new (window.AudioContext || window.webkitAudioContext)();
+
 
   //if('webkitAudioContext' in window) {
    // var audioCtx = new webkitAudioContext();
@@ -17,6 +17,7 @@ $(document).ready(function(){
     this.startTimerClicked = false;
     this.reset = false;
     this.pauseClicks = false;
+    this.audio = new Audio('alarm-sound.mp3');
   };
 
   newTimerWidget.prototype.getTimeObject = function(){
@@ -286,33 +287,21 @@ $(document).ready(function(){
   }
 
   ViewModel.prototype.makeSound = function(){
-    var counter = 1;
-    var time = this.obj.currentTime;
     console.log(this.obj.currentTime);
-    function generateSound(){   
-      if ((counter <=5) &&(time <=0)){
-        counter++;
-        // create Oscillator node
-        var oscillator =  window.AudioContext.createOscillator();
-        oscillator.type = 'square';
-        oscillator.frequency.value = 2500; // value in hertz
-        oscillator.connect( window.AudioContext.destination);
-        oscillator.start();
-        oscillator.stop( window.AudioContext.currentTime + 0.1)
-        window.setTimeout(generateSound, 120);
-      }
-      else {
-        var oscillator =  window.AudioContext.createOscillator();
-        oscillator.type = 'square';
-        oscillator.frequency.value = 20000; // value in hertz
-        oscillator.connect( window.AudioContext.destination);
-        oscillator.start();
-        oscillator.stop( window.AudioContext.currentTime + 0.0001)
-        //window.setTimeout(generateSound, 120);
-      }
+
+
+    if (this.obj.currentTime <=  0 ){
+          console.log('hi');
+            this.obj.audio.play();
     }
-    
-    generateSound();
+
+    else {
+
+        this.obj.audio.play();
+        this.obj.audio.pause();
+         this.obj.audio.currentTime = 0;
+    }
+  
     
   
   }
