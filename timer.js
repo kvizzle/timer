@@ -2,6 +2,7 @@ $(document).ready(function(){
   var counter = 1;
   var numNewTimers = 0;
   var nameArr = [];
+  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   
   function newTimerWidget(name){
     this.name = name;
@@ -53,7 +54,7 @@ $(document).ready(function(){
     this.millisecondsChanged = 0;
     this.startTimerClicked = false;
     this.reset = true;
-    this.audio.pause();
+    //this.audio.pause();
   }
 
   function ViewModel(){
@@ -165,8 +166,8 @@ $(document).ready(function(){
 
   ViewModel.prototype.startTimer = function(event){
     var self = event.data.self;
-    self.obj.audio = new Audio('alarm-sound.mp3');
-    self.obj.audio.play();
+    //self.obj.audio = new Audio('alarm-sound.mp3');
+    //self.obj.audio.play();
     var input = this;
     input.disabled = true;
     self.obj.startTimerClicked = true;
@@ -183,12 +184,14 @@ $(document).ready(function(){
       self.obj.start(countDownTime);
       self.updateTimeDisplay();
        
+      
       if (self.obj.currentTime <= 0){
         clearInterval(myVar);
         $('.startTimer'+self.name +
         ', .increase'+self.name +
         ', .decrease'+self.name+
-        ', .pauseTimer'+self.name).attr('disabled', true);       
+        ', .pauseTimer'+self.name).attr('disabled', true);
+         self.makeSound();       
       }  
 
       if (self.obj.reset == true){
@@ -274,6 +277,24 @@ $(document).ready(function(){
     else {
       $('#'+this.name).css('background', colors[0].background);
     }
+  }
+
+  ViewModel.prototype.makeSound = function(){
+    var counter = 1;
+    function generateSound(){   
+      if (counter <=5){
+        counter++;
+        // create Oscillator node
+        var oscillator = audioCtx.createOscillator();
+        oscillator.type = 'square';
+        oscillator.frequency.value = 2500; // value in hertz
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.1)
+        window.setTimeout(generateSound, 120);
+      }
+    }
+    generateSound();
   }
               
   var initialTimer = new ViewModel();
