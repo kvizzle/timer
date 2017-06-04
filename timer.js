@@ -307,7 +307,7 @@ $(document).ready(function(){
         oscillator.frequency.value = 500; // value in hertz
         oscillator.connect( window.AudioContext.destination);
         oscillator.start();
-        oscillator.stop( window.AudioContext.currentTime)
+        oscillator.stop( window.AudioContext.currentTime + 0.1)
         //window.setTimeout(generateSound, 120);
       }
     }
