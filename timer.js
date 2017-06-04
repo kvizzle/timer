@@ -10,7 +10,7 @@ $(document).ready(function(){
     this.startTimerClicked = false;
     this.reset = false;
     this.pauseClicks = false;
-    this.audio;
+    this.audio = new Audio('alarm-sound.mp3');
   };
 
   newTimerWidget.prototype.getTimeObject = function(){
@@ -34,9 +34,6 @@ $(document).ready(function(){
   }
 
   newTimerWidget.prototype.start = function(countDownTime){
-    this.audio = new Audio('alarm-sound.mp3');
-    this.audio.play();
-    this.audio.pause();
     var adjustments = this.millisecondsChanged;
     var updateTimeNow = new Date().getTime();
     var timeRemaining = ((countDownTime + adjustments) - updateTimeNow);
