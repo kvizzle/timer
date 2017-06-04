@@ -1,10 +1,14 @@
-$(window).ready(function(){
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
 
 $(document).ready(function(){
   var counter = 1;
   var numNewTimers = 0;
   var nameArr = [];
+  window.AudioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+  //if('webkitAudioContext' in window) {
+   // var audioCtx = new webkitAudioContext();
+//}
   
   function newTimerWidget(name){
     this.name = name;
@@ -286,12 +290,12 @@ $(document).ready(function(){
       if (counter <=5){
         counter++;
         // create Oscillator node
-        var oscillator = audioCtx.createOscillator();
+        var oscillator =  window.AudioContext.createOscillator();
         oscillator.type = 'square';
         oscillator.frequency.value = 2500; // value in hertz
-        oscillator.connect(audioCtx.destination);
+        oscillator.connect( window.AudioContext.destination);
         oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.1)
+        oscillator.stop( window.AudioContext.currentTime + 0.1)
         window.setTimeout(generateSound, 120);
       }
     }
@@ -310,7 +314,6 @@ $(document).ready(function(){
        var additionalTimers= new ViewModel();
     }
   });
-});
 });
 
 
