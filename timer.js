@@ -164,6 +164,8 @@ $(document).ready(function(){
 
   ViewModel.prototype.startTimer = function(event){
     var self = event.data.self;
+       self.obj.audio = new Audio('alarm-sound.mp3');
+     self.obj.audio.play(); 
     var input = this;
     input.disabled = true;
     self.obj.startTimerClicked = true;
@@ -186,9 +188,6 @@ $(document).ready(function(){
         ', .increase'+self.name +
         ', .decrease'+self.name+
         ', .pauseTimer'+self.name).attr('disabled', true);       
-
-         self.obj.audio = new Audio('alarm-sound.mp3');
-     self.obj.audio.play(); 
       }  
 
       if (self.obj.reset == true){
