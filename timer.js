@@ -101,7 +101,7 @@ $(document).ready(function(){
   
   ViewModel.prototype.generateHtml = function(){
       $('.result').append(
-      `<div class='col-md-4 col-sm-12 col-lg-4 col-xs-12 text-center'>
+      `<div class='col-md-4 col-sm-6 col-lg-4 col-xs-12 text-center'>
         <div id='${this.name}' class='new-timer'>
           <input type='text' class='timer-name text-center' value='${this.name}'></input><br>
           <button class='mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored submit decrease${this.name}' value='-1'> 
@@ -300,3 +300,5 @@ $(document).ready(function(){
 
 
 // do done
+// put on a sound file
+// use enter for adding 
