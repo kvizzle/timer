@@ -282,7 +282,6 @@ $(document).ready(function(){
     var counter = 1;
     function generateSound(){   
       if (counter <=5){
-        alert('hey');
         counter++;
         // create Oscillator node
         var oscillator = audioCtx.createOscillator();
@@ -290,6 +289,7 @@ $(document).ready(function(){
         oscillator.frequency.value = 2500; // value in hertz
         oscillator.connect(audioCtx.destination);
         oscillator.start();
+         alert('hey');
         oscillator.stop(audioCtx.currentTime + 0.1)
         window.setTimeout(generateSound, 120);
       }
