@@ -289,11 +289,11 @@ $(document).ready(function(){
         oscillator.frequency.value = 2500; // value in hertz
         oscillator.connect(audioCtx.destination);
         oscillator.start();
-         alert('hey');
         oscillator.stop(audioCtx.currentTime + 0.1)
         window.setTimeout(generateSound, 120);
       }
     }
+    generateSound();
     generateSound();
   }
               
