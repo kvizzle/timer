@@ -60,7 +60,6 @@ $(document).ready(function(){
     this.millisecondsChanged = 0;
     this.startTimerClicked = false;
     this.reset = true;
-    //this.audio.pause();
   }
 
   function ViewModel(){
@@ -229,6 +228,7 @@ $(document).ready(function(){
         ', .decrease'+self.name+
         ', .pauseTimer'+self.name).attr('disabled', false);
     self.updateTimeDisplay();
+    self.obj.audio.pause();
   }
 
   ViewModel.prototype.addButtons = function(event){
@@ -287,23 +287,15 @@ $(document).ready(function(){
   }
 
   ViewModel.prototype.makeSound = function(){
-    console.log(this.obj.currentTime);
-
-
-    if (this.obj.currentTime <=  0 ){
-          console.log('hi');
-            this.obj.audio.play();
+    if(this.obj.currentTime <=  0 ){
+      this.obj.audio.play();
     }
 
     else {
-
-        this.obj.audio.play();
-        this.obj.audio.pause();
-         this.obj.audio.currentTime = 0;
-    }
-  
-    
-  
+      this.obj.audio.play();
+      this.obj.audio.pause();
+      this.obj.audio.currentTime = 0;
+    } 
   }
               
   var initialTimer = new ViewModel();
