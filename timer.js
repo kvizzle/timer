@@ -40,7 +40,6 @@ $(document).ready(function(){
     this.currentTime = timeRemaining;
     if(this.currentTime < 0){
       this.currentTime = 0;
-      this.audio.play();
     }
   }
 
@@ -50,6 +49,7 @@ $(document).ready(function(){
   }
 
   newTimerWidget.prototype.resetTimer = function(){
+     this.audio.play();
     this.currentTime = 1500000;
     this.millisecondsChanged = 0;
     this.startTimerClicked = false;
