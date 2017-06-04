@@ -90,7 +90,6 @@
    
    .name{
         font-size: 1em!important;
-        border: solid red 2px!important;
     }
   
      .mdl-js-textfield {
@@ -99,13 +98,6 @@
   
   .add-timer {
         padding: 2%!important;
-  }
-  
-  
-  .new-timer {
-    margin-bottom: 6%;
-    padding: 0%;
-    padding-botom: 5%;
   }
 
   .timer-name {
