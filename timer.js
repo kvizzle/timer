@@ -11,7 +11,6 @@ $(document).ready(function(){
     this.startTimerClicked = false;
     this.reset = false;
     this.pauseClicks = false;
-    this.audio; 
   };
 
   newTimerWidget.prototype.getTimeObject = function(){
@@ -280,6 +279,7 @@ $(document).ready(function(){
   }
 
   ViewModel.prototype.makeSound = function(){
+    alert('hey');
     var counter = 1;
     function generateSound(){   
       if (counter <=5){
