@@ -279,10 +279,10 @@ $(document).ready(function(){
   }
 
   ViewModel.prototype.makeSound = function(){
-    alert('hey');
     var counter = 1;
     function generateSound(){   
       if (counter <=5){
+        alert('hey');
         counter++;
         // create Oscillator node
         var oscillator = audioCtx.createOscillator();
