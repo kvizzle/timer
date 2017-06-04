@@ -287,6 +287,8 @@ $(document).ready(function(){
 
   ViewModel.prototype.makeSound = function(){
     var counter = 1;
+
+    console.log(this.obj.currentTime);
     function generateSound(){   
       if (counter <=5){
         counter++;
@@ -300,7 +302,10 @@ $(document).ready(function(){
         window.setTimeout(generateSound, 120);
       }
     }
-    generateSound();
+    if (this.obj.currentTime <= 0) {
+          generateSound();
+    }
+  
   }
               
   var initialTimer = new ViewModel();
