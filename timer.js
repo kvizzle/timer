@@ -34,13 +34,15 @@ $(document).ready(function(){
   }
 
   newTimerWidget.prototype.start = function(countDownTime){
+    this.audio = new Audio('alarm-sound.mp3');
+    this.audio.play();
+    this.audio.pause();
     var adjustments = this.millisecondsChanged;
     var updateTimeNow = new Date().getTime();
     var timeRemaining = ((countDownTime + adjustments) - updateTimeNow);
     this.currentTime = timeRemaining;
     if(this.currentTime < 0){
       this.currentTime = 0;
-      this.audio = new Audio('alarm-sound.mp3');
       this.audio.play();
     }
   }
@@ -48,8 +50,6 @@ $(document).ready(function(){
   newTimerWidget.prototype.pauseTimer = function(){
     this.startTimerClicked = false;
     this.pauseClicks = true;
-    this.audio = new Audio('alarm-sound.mp3');
-      this.audio.play();
   }
 
   newTimerWidget.prototype.resetTimer = function(){
