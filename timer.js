@@ -10,6 +10,7 @@ $(document).ready(function(){
     this.startTimerClicked = false;
     this.reset = false;
     this.pauseClicks = false;
+    this.audio;
   };
 
   newTimerWidget.prototype.getTimeObject = function(){
@@ -39,14 +40,16 @@ $(document).ready(function(){
     this.currentTime = timeRemaining;
     if(this.currentTime < 0){
       this.currentTime = 0;
-      var audio = new Audio('alarm-sound.mp3');
-      audio.play();
+      this.audio = new Audio('alarm-sound.mp3');
+      this.audio.play();
     }
   }
 
   newTimerWidget.prototype.pauseTimer = function(){
     this.startTimerClicked = false;
     this.pauseClicks = true;
+    this.audio = new Audio('alarm-sound.mp3');
+      this.audio.play();
   }
 
   newTimerWidget.prototype.resetTimer = function(){
@@ -54,6 +57,7 @@ $(document).ready(function(){
     this.millisecondsChanged = 0;
     this.startTimerClicked = false;
     this.reset = true;
+    this.audio.pause();
   }
 
   function ViewModel(){
