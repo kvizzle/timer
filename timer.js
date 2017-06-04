@@ -218,6 +218,7 @@ $(document).ready(function(){
         ', .decrease'+self.name+
         ', .pauseTimer'+self.name).attr('disabled', false);
     self.updateTimeDisplay();
+    self.obj.audio.pause();
   }
 
   ViewModel.prototype.addButtons = function(event){
