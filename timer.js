@@ -49,13 +49,12 @@ $(document).ready(function(){
   }
 
   newTimerWidget.prototype.resetTimer = function(){
-    this.audio = new Audio('alarm-sound.mp3');
-     this.audio.play();
     this.currentTime = 1500000;
     this.millisecondsChanged = 0;
     this.startTimerClicked = false;
     this.reset = true;
-    this.audio.pause();
+this.audio = new Audio('alarm-sound.mp3');
+     this.audio.play();
   }
 
   function ViewModel(){
