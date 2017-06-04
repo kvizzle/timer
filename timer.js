@@ -74,7 +74,6 @@ $(document).ready(function(){
     this.generateHtml();
     this.clickHandlers(this); 
     this.selectBackground();
-    this.makeSound();
   }
 
   ViewModel.prototype.setName = function(){
@@ -172,6 +171,7 @@ $(document).ready(function(){
 
   ViewModel.prototype.startTimer = function(event){
     var self = event.data.self;
+         self.makeSound();
     //self.obj.audio = new Audio('alarm-sound.mp3');
     //self.obj.audio.play();
     var input = this;
