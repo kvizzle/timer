@@ -287,10 +287,10 @@ $(document).ready(function(){
 
   ViewModel.prototype.makeSound = function(){
     var counter = 1;
-
+    var time = this.obj.currentTime;
     console.log(this.obj.currentTime);
     function generateSound(){   
-      if (counter <=5){
+      if ((counter <=5) &&(time <=0)){
         counter++;
         // create Oscillator node
         var oscillator =  window.AudioContext.createOscillator();
@@ -301,6 +301,7 @@ $(document).ready(function(){
         oscillator.stop( window.AudioContext.currentTime + 0.1)
         window.setTimeout(generateSound, 120);
       }
+      return false;
     }
     generateSound();
     
