@@ -38,7 +38,7 @@ $(document).ready(function(){
     var updateTimeNow = new Date().getTime();
     var timeRemaining = ((countDownTime + adjustments) - updateTimeNow);
     this.currentTime = timeRemaining;
-    if(this.currentTime < 0){
+    if(this.currentTime <= 0){
       this.audio.play();
       this.currentTime = 0;
     }
