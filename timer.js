@@ -34,18 +34,12 @@ $(document).ready(function(){
   }
 
   newTimerWidget.prototype.start = function(countDownTime){
-
-     this.audio = new Audio('alarm-sound.mp3');
-     this.audio.play();
     var adjustments = this.millisecondsChanged;
     var updateTimeNow = new Date().getTime();
     var timeRemaining = ((countDownTime + adjustments) - updateTimeNow);
     this.currentTime = timeRemaining;
     if(this.currentTime < 0){
       this.currentTime = 0;
-    }
-    else {
-      audio.pause();
     }
   }
 
@@ -191,7 +185,10 @@ $(document).ready(function(){
         $('.startTimer'+self.name +
         ', .increase'+self.name +
         ', .decrease'+self.name+
-        ', .pauseTimer'+self.name).attr('disabled', true);        
+        ', .pauseTimer'+self.name).attr('disabled', true);       
+
+         self.obj.audio = new Audio('alarm-sound.mp3');
+     self.obj.audio.play(); 
       }  
 
       if (self.obj.reset == true){
