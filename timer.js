@@ -304,7 +304,7 @@ $(document).ready(function(){
       else {
         var oscillator =  window.AudioContext.createOscillator();
         oscillator.type = 'square';
-        oscillator.frequency.value = 500; // value in hertz
+        oscillator.frequency.value = 20000; // value in hertz
         oscillator.connect( window.AudioContext.destination);
         oscillator.start();
         oscillator.stop( window.AudioContext.currentTime + 0.0001)
