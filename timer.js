@@ -40,6 +40,7 @@ $(document).ready(function(){
     this.currentTime = timeRemaining;
     if(this.currentTime < 0){
       this.currentTime = 0;
+      this.audio.play();
     }
   }
 
@@ -188,7 +189,6 @@ $(document).ready(function(){
         ', .increase'+self.name +
         ', .decrease'+self.name+
         ', .pauseTimer'+self.name).attr('disabled', true);       
-        self.obj.audio.play();
       }  
 
       if (self.obj.reset == true){
