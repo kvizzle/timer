@@ -1,8 +1,10 @@
+$(window).ready(function(){
+  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
 $(document).ready(function(){
   var counter = 1;
   var numNewTimers = 0;
   var nameArr = [];
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   
   function newTimerWidget(name){
     this.name = name;
@@ -294,7 +296,6 @@ $(document).ready(function(){
       }
     }
     generateSound();
-    generateSound();
   }
               
   var initialTimer = new ViewModel();
@@ -309,6 +310,7 @@ $(document).ready(function(){
        var additionalTimers= new ViewModel();
     }
   });
+});
 });
 
 
