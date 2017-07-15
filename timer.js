@@ -6,9 +6,7 @@ $(document).ready(function(){
   var nameArr = [];
 
 
-  //if('webkitAudioContext' in window) {
-   // var audioCtx = new webkitAudioContext();
-//}
+
   
   function newTimerWidget(name){
     this.name = name;
@@ -108,7 +106,7 @@ $(document).ready(function(){
   
   ViewModel.prototype.generateHtml = function(){
       $('.result').append(
-      `<div class='col-md-4 col-sm-6 col-lg-4 col-xs-12 text-center'>
+      `<div id='element${this.name}' class='col-md-4 col-sm-6 col-lg-4 col-xs-12 text-center'>
         <div id='${this.name}' class='new-timer'>
           <input type='text' class='timer-name text-center' value='${this.name}'></input><br>
           <button class='mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored submit decrease${this.name}' value='-1'> 
@@ -150,6 +148,9 @@ $(document).ready(function(){
           </button>
           <button class='mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored submit reset resetTimer${this.name}' value='Reset'> 
             <i class="material-icons">replay</i>
+          </button>
+          <button class='mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored submit reset deleteTimer${this.name}' value='Reset'> 
+            <i class="material-icons">delete</i>
           </button><br>
         </div>
       </div>`);
@@ -167,13 +168,18 @@ $(document).ready(function(){
     ', .decreaseFiveSeconds'+this.name+ 
     ', .decreaseOneMinute'+this.name+ 
     ', .decreaseFiveMinutes'+this.name).on('click',{'self':this}, this.adjustTimer); 
+    $('.deleteTimer'+this.name).on('click', {self:this}, this.removeElem);
   }
 
+  ViewModel.prototype.removeElem = function(event){
+    var self = event.data.self;
+    console.log(self);
+    $('#element'+ self.name).remove();
+  }
+  
   ViewModel.prototype.startTimer = function(event){
     var self = event.data.self;
-         self.makeSound();
-    //self.obj.audio = new Audio('alarm-sound.mp3');
-    //self.obj.audio.play();
+    self.makeSound();
     var input = this;
     input.disabled = true;
     self.obj.startTimerClicked = true;
@@ -214,10 +220,9 @@ $(document).ready(function(){
 
   ViewModel.prototype.pauseTimer = function(event){
     var self = event.data.self;
-    self.obj.pauseTimer(); 
-    $('.startTimer'+self.name).attr('disabled', false);
-    self.updateTimeDisplay();
-   // $('#'+self.name).remove();
+   self.obj.pauseTimer(); 
+   $('.startTimer'+self.name).attr('disabled', false);
+   self.updateTimeDisplay();
   }
 
   ViewModel.prototype.resetTimer = function(event){
@@ -314,3 +319,6 @@ $(document).ready(function(){
 
 
 // do done
+
+// $('#element'+name).remove();
+// <i class="material-icons">delete</i>
