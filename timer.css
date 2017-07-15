@@ -1,3 +1,10 @@
+.instructions  {
+margin-top: 20px;
+text-align: center;
+font-family: arial;
+font-size: 1em;
+}
+
 .add-timer {
     padding: 1%;
 }
