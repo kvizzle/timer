@@ -1,21 +1,7 @@
 
-.instructions  {
-margin-top: 20px;
-text-align: center;
-font-family: arial;
-font-size: 1em;
-}
-
-.cols {
-
-  overflow:hidden;
-  height: auto;
-}
 
 .add-timer {
     padding: 1%;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
 }
 
 .name:focus {
@@ -43,7 +29,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     width: 100%;
     position: relative;
     background-color: skyblue;
-    clear: left;
 }
 
 .timer-name {
@@ -102,9 +87,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 @media only screen and (max-width: 480px) {
 
-   .instructions{
-       margin-top: 5px;
-   }
+   
    .name{
         font-size: 1em!important;
     }
@@ -120,6 +103,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   
   .new-timer {
     margin-bottom: 3%;
+    padding-botom: 5%;
     margin-top: 6%;
   }
 
@@ -140,3 +124,4 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     padding: 8%!important;
   }
 }
+
